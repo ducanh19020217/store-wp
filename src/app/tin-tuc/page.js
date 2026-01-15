@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { getPosts } from '@/lib/api';
+import { getPosts, getPostCategories } from '@/lib/api';
+import CategoryFilter from '@/components/CategoryFilter';
+import { Suspense } from 'react';
 
 export const metadata = {
     title: "Tin Tức - Chia Sẻ | Điện Máy Tổng Hợp Hoàng Lâm | Kiến Thức Ngành May",
@@ -12,33 +14,45 @@ export const metadata = {
     },
 };
 
-export default async function NewsPage() {
+export default async function NewsPage({ searchParams }) {
+    const categorySlug = searchParams.category || 'all';
     let posts = [];
     let featuredPost = null;
+    let categories = [];
 
     try {
-        const allPosts = await getPosts();
-        if (allPosts && allPosts.length > 0) {
-            featuredPost = allPosts[0];
-            posts = allPosts.slice(1);
-        }
-    } catch (e) {
-        console.error("Error fetching posts:", e);
-    }
+        // Fetch categories
+        const wpCategories = await getPostCategories();
+        categories = [
+            { id: 'all', name: "Tất cả", slug: "all", icon: "📰" },
+            ...wpCategories.map(cat => ({
+                id: cat.id,
+                name: cat.name,
+                slug: cat.slug,
+                icon: "📄"
+            }))
+        ];
 
-    const categories = [
-        { name: "Tất cả", slug: "all", icon: "📰" },
-        { name: "Xu hướng", slug: "xu-huong", icon: "📈" },
-        { name: "Công nghệ", slug: "cong-nghe", icon: "⚙️" },
-        { name: "Kinh nghiệm", slug: "kinh-nghiem", icon: "💡" },
-        { name: "Bảo dưỡng", slug: "bao-duong", icon: "🔧" },
-    ];
+        // Find category ID if filtering
+        let categoryId = null;
+        if (categorySlug !== 'all') {
+            const currentCat = wpCategories.find(c => c.slug === categorySlug);
+            if (currentCat) categoryId = currentCat.id;
+        }
+
+        // Fetch posts
+        const allPosts = await getPosts(categoryId);
+        posts = allPosts || [];
+        featuredPost = null; // Disable featured post for now to ensure all show in grid
+    } catch (e) {
+        console.error("Error fetching news data:", e);
+    }
 
     return (
         <div className="bg-gray-50 min-h-screen">
             {/* Hero Section */}
             <section className="bg-gradient-to-r from-blue-900 to-red-600 text-white py-16">
-                <div className="container-custom">
+                <div className="container-custom px-4">
                     <div className="max-w-3xl">
                         <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">
                             Tin Tức & Chia Sẻ
@@ -52,26 +66,15 @@ export default async function NewsPage() {
 
             {/* Category Filter */}
             <section className="bg-white border-b sticky top-0 z-50 shadow-sm">
-                <div className="container-custom py-4">
-                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                        {categories.map((cat, index) => (
-                            <button
-                                key={index}
-                                className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all ${index === 0
-                                        ? 'bg-red-600 text-white shadow-lg'
-                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                    }`}
-                            >
-                                <span>{cat.icon}</span>
-                                <span>{cat.name}</span>
-                            </button>
-                        ))}
-                    </div>
+                <div className="container-custom py-4 px-4">
+                    <Suspense fallback={<div className="h-12 bg-gray-100 animate-pulse rounded-full w-full"></div>}>
+                        <CategoryFilter categories={categories} />
+                    </Suspense>
                 </div>
             </section>
 
-            <div className="container-custom py-12">
-                {/* Featured Post */}
+            <div className="container-custom py-12 px-4">
+                {/* Featured Post (Only on 'All' view) */}
                 {featuredPost && (
                     <section className="mb-16">
                         <div className="flex items-center gap-3 mb-8">
@@ -131,7 +134,9 @@ export default async function NewsPage() {
                 <section>
                     <div className="flex items-center gap-3 mb-8">
                         <div className="h-8 w-2 bg-red-600"></div>
-                        <h2 className="text-3xl font-black uppercase">Bài Viết Mới Nhất</h2>
+                        <h2 className="text-3xl font-black uppercase">
+                            {categorySlug === 'all' ? 'Bài Viết Mới Nhất' : `Chuyên mục: ${categories.find(c => c.slug === categorySlug)?.name || ''}`}
+                        </h2>
                     </div>
 
                     {posts.length > 0 ? (
@@ -177,43 +182,25 @@ export default async function NewsPage() {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-20">
+                        <div className="text-center py-20 bg-white rounded-3xl shadow-sm border border-gray-100">
                             <div className="text-6xl mb-4 opacity-20">📭</div>
-                            <p className="text-xl text-gray-500 font-medium">Chưa có bài viết nào được xuất bản</p>
+                            <p className="text-xl text-gray-500 font-medium">Chưa có bài viết nào trong chuyên mục này</p>
                             <p className="text-gray-400 mt-2">Vui lòng quay lại sau để xem nội dung mới nhất</p>
                         </div>
                     )}
                 </section>
-
-                {/* Pagination (placeholder) */}
-                {posts.length > 0 && (
-                    <div className="mt-16 flex justify-center gap-2">
-                        <button className="px-4 py-2 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition-colors">
-                            1
-                        </button>
-                        <button className="px-4 py-2 bg-white text-gray-700 rounded-lg font-bold hover:bg-gray-100 transition-colors border">
-                            2
-                        </button>
-                        <button className="px-4 py-2 bg-white text-gray-700 rounded-lg font-bold hover:bg-gray-100 transition-colors border">
-                            3
-                        </button>
-                        <button className="px-4 py-2 bg-white text-gray-700 rounded-lg font-bold hover:bg-gray-100 transition-colors border">
-                            →
-                        </button>
-                    </div>
-                )}
             </div>
 
             {/* Newsletter CTA */}
             <section className="bg-gradient-to-r from-blue-900 to-red-600 text-white py-16 mt-12">
-                <div className="container-custom text-center">
+                <div className="container-custom text-center px-4">
                     <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase">
                         Đăng Ký Nhận Tin Tức
                     </h2>
                     <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                         Nhận những bài viết mới nhất, xu hướng công nghệ và ưu đãi đặc biệt qua email
                     </p>
-                    <div className="max-w-md mx-auto flex gap-3">
+                    <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
                         <input
                             type="email"
                             placeholder="Nhập email của bạn..."

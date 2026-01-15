@@ -213,4 +213,5 @@ curl http://localhost:8082/wp-json/wp/v2/product?slug=may-may-brother
 
 - WordPress REST API: https://developer.wordpress.org/rest-api/
 - WooCommerce REST API: https://woocommerce.github.io/woocommerce-rest-api-docs/
+- WooCommerce API Python Examples: https://woocommerce.github.io/woocommerce-rest-api-docs/?python#create-a-product
 - Custom Post Types: https://developer.wordpress.org/rest-api/reference/posts/

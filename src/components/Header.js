@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { getCategories, getProductsByCategory } from '@/lib/api';
 import { siteConfig } from '@/config/site';
+import Search from '@/components/Search';
 
 export default function Header() {
     const [categories, setCategories] = useState([]);
@@ -56,7 +57,7 @@ export default function Header() {
             </div>
 
             {/* Main Header - Mobile optimized */}
-            <div className="bg-white py-3 md:py-4 shadow-sm">
+            <div className="bg-white py-3 md:py-4 shadow-sm relative z-[101]">
                 <div className="container-custom">
                     <div className="flex justify-between items-center gap-3">
                         {/* Logo - Smaller on mobile */}
@@ -72,18 +73,7 @@ export default function Header() {
 
                         {/* Search Bar - Responsive */}
                         <div className="flex-1 max-w-md md:max-w-2xl">
-                            <form className="relative flex">
-                                <input
-                                    type="text"
-                                    placeholder="Tìm kiếm..."
-                                    className="w-full border-2 border-red-600 rounded-l-md px-3 md:px-4 py-2 md:py-2 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all text-sm md:text-base"
-                                />
-                                <button className="bg-red-600 text-white px-4 md:px-6 py-2 rounded-r-md hover:bg-red-700 transition-colors shadow-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </button>
-                            </form>
+                            <Search />
                         </div>
 
                         {/* Mobile Menu Button */}

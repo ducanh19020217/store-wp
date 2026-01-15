@@ -1,68 +1,57 @@
 import Link from 'next/link';
-import { getProducts, getCategories } from '@/lib/api';
+import { getProducts, getCategories, getPosts } from '@/lib/api';
 import { siteConfig } from '@/config/site';
 
 export default async function Home() {
   // Fetch real data from WordPress
   let products = [];
   let categories = [];
+  let newsPosts = [];
 
   try {
-    const [productsData, categoriesData] = await Promise.all([
+    const [productsData, categoriesData, postsData] = await Promise.all([
       getProducts(),
-      getCategories()
+      getCategories(),
+      getPosts()
     ]);
 
     products = productsData.slice(0, 4); // Get first 4 products
     categories = categoriesData.filter(cat =>
       cat.slug !== 'uncategorized' && cat.slug !== 'chua-phan-loai'
     ).slice(0, 12); // Get first 12 categories
+    newsPosts = postsData.slice(0, 3); // Get latest 3 news posts
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 
   // Mock data if no real data available
   const mockCategories = [
-    { id: 1, name: "Máy May Công Nghiệp", slug: "may-may-cong-nghiep", icon: "🧵" },
-    { id: 2, name: "Máy Cắt Vải", slug: "may-cat-vai", icon: "✂️" },
-    { id: 3, name: "Máy Thêu Vi Tính", slug: "may-theu-vi-tinh", icon: "💻" },
-    { id: 4, name: "Máy May Cũ", slug: "may-may-cu", icon: "♻️" },
-    { id: 5, name: "Bàn Ủ Công Nghiệp", slug: "ban-u-cong-nghiep", icon: "💨" },
-    { id: 6, name: "Máy Sang Chỉ", slug: "may-sang-chi", icon: "🧶" },
-    { id: 7, name: "Máy Cán Rèm Cửa", slug: "may-can-rem-cua", icon: "🖼️" },
-    { id: 8, name: "Mô Tơ Máy May", slug: "mo-to-may-may", icon: "⚙️" },
-    { id: 9, name: "Phụ Tùng Máy May", slug: "phu-tung-may-may", icon: "🔧" },
-    { id: 10, name: "Nồi Hơi Công Nghiệp", slug: "noi-hoi-cong-nghiep", icon: "🔥" },
-    { id: 11, name: "Máy May Bao", slug: "may-may-bao", icon: "📦" },
-    { id: 12, name: "Máy May Gia Đình", slug: "may-may-gia-dinh", icon: "🏠" },
+    // { id: 1, name: "Máy May Công Nghiệp", slug: "may-may-cong-nghiep", icon: "🧵" },
+    // { id: 2, name: "Máy Cắt Vải", slug: "may-cat-vai", icon: "✂️" },
+    // { id: 3, name: "Máy Thêu Vi Tính", slug: "may-theu-vi-tinh", icon: "💻" },
+    // { id: 4, name: "Máy May Cũ", slug: "may-may-cu", icon: "♻️" },
+    // { id: 5, name: "Bàn Ủ Công Nghiệp", slug: "ban-u-cong-nghiep", icon: "💨" },
+    // { id: 6, name: "Máy Sang Chỉ", slug: "may-sang-chi", icon: "🧶" },
+    // { id: 7, name: "Máy Cán Rèm Cửa", slug: "may-can-rem-cua", icon: "🖼️" },
+    // { id: 8, name: "Mô Tơ Máy May", slug: "mo-to-may-may", icon: "⚙️" },
+    // { id: 9, name: "Phụ Tùng Máy May", slug: "phu-tung-may-may", icon: "🔧" },
+    // { id: 10, name: "Nồi Hơi Công Nghiệp", slug: "noi-hoi-cong-nghiep", icon: "🔥" },
+    // { id: 11, name: "Máy May Bao", slug: "may-may-bao", icon: "📦" },
+    // { id: 12, name: "Máy May Gia Đình", slug: "may-may-gia-dinh", icon: "🏠" },
   ];
 
   const mockProducts = [
-    { id: 1, name: "Máy May Công Nghiệp Brother S-7100A", price: 15000000, slug: "may-may-brother-s7100a" },
-    { id: 2, name: "Máy Cắt Vải Đứng Eastman CZD-3", price: 25000000, slug: "may-cat-vai-eastman" },
-    { id: 3, name: "Máy Thêu Vi Tính Tajima 12 Kim", price: 0, slug: "may-theu-tajima" },
-    { id: 4, name: "Máy May Jack A4F Điện Tử", price: 8500000, slug: "may-may-jack-a4f" },
+    // { id: 1, name: "Máy May Công Nghiệp Brother S-7100A", price: 15000000, slug: "may-may-brother-s7100a" },
+    // { id: 2, name: "Máy Cắt Vải Đứng Eastman CZD-3", price: 25000000, slug: "may-cat-vai-eastman" },
+    // { id: 3, name: "Máy Thêu Vi Tính Tajima 12 Kim", price: 0, slug: "may-theu-tajima" },
+    // { id: 4, name: "Máy May Jack A4F Điện Tử", price: 8500000, slug: "may-may-jack-a4f" },
   ];
 
   // Use real data if available, otherwise use mock
   const displayCategories = categories.length > 0 ? categories : mockCategories;
   const displayProducts = products.length > 0 ? products : mockProducts;
 
-  // Category icons mapping
-  const categoryIcons = {
-    'may-may-cong-nghiep': '🧵',
-    'may-cat-vai': '✂️',
-    'may-theu-vi-tinh': '💻',
-    'may-may-cu': '♻️',
-    'ban-u-cong-nghiep': '💨',
-    'may-sang-chi': '🧶',
-    'may-can-rem-cua': '🖼️',
-    'mo-to-may-may': '⚙️',
-    'phu-tung-may-may': '🔧',
-    'noi-hoi-cong-nghiep': '🔥',
-    'may-may-bao': '📦',
-    'may-may-gia-dinh': '🏠',
-  };
+  // Category icons mapping removed as per request
 
   return (
     <div className="bg-gray-50 pb-20">
@@ -114,8 +103,12 @@ export default async function Home() {
                 href={`/danh-muc/${cat.slug}`}
                 className="group flex flex-col items-center text-center p-4 md:p-6 rounded-xl hover:bg-red-50 transition-all border border-gray-50 hover:border-red-200 hover:shadow-md"
               >
-                <div className="text-4xl md:text-5xl mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {cat.icon || categoryIcons[cat.slug] || '📦'}
+                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center border-2 border-gray-100 group-hover:border-red-200">
+                  {cat.image?.src ? (
+                    <img src={cat.image.src} alt={cat.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-2xl md:text-3xl">📦</span>
+                  )}
                 </div>
                 <span className="text-xs md:text-sm font-bold text-gray-800 group-hover:text-red-600 uppercase tracking-tighter leading-tight line-clamp-2">
                   {cat.name}
@@ -149,9 +142,9 @@ export default async function Home() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 group"
             >
               <div className="aspect-square bg-gray-50 flex items-center justify-center text-gray-300 font-bold relative overflow-hidden">
-                {product._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
+                {product.images?.[0]?.src ? (
                   <img
-                    src={product._embedded['wp:featuredmedia'][0].source_url}
+                    src={product.images[0].src}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -166,7 +159,7 @@ export default async function Home() {
                   {product.name}
                 </h4>
                 <p className="text-red-600 font-black text-xl md:text-2xl mb-4 md:mb-6">
-                  {product.price && product.price > 0
+                  {product.price && Number(product.price) > 0
                     ? `${Number(product.price).toLocaleString('vi-VN')} đ`
                     : 'Liên hệ'
                   }
@@ -198,6 +191,56 @@ export default async function Home() {
             <h4 className="text-lg md:text-xl font-bold mb-2 uppercase">Chất Lượng Chính Hãng</h4>
             <p className="text-red-100 text-sm">Cung cấp phụ kiện từ các thương hiệu hàng đầu thế giới.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Latest News Section */}
+      <section className="container-custom mt-16 md:mt-24 px-4 pb-20">
+        <div className="flex justify-between items-end mb-8 md:mb-12">
+          <div className="flex items-center gap-4">
+            <div className="h-10 w-2 bg-red-600"></div>
+            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight">Tin tức mới nhất</h3>
+          </div>
+          <Link href="/tin-tuc" className="text-red-600 font-bold hover:underline flex items-center gap-2 text-sm md:text-base">
+            Xem tất cả tin tức
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {newsPosts.length > 0 ? newsPosts.map((post) => (
+            <Link key={post.id} href={`/tin-tuc/${post.slug}`} className="group">
+              <article className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all h-full flex flex-col">
+                <div className="aspect-video bg-gray-100 relative overflow-hidden">
+                  {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
+                    <img
+                      src={post._embedded['wp:featuredmedia'][0].source_url}
+                      alt={post.title.rendered}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-4xl opacity-20">📰</div>
+                  )}
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="text-xs text-gray-500 mb-2">
+                    📅 {new Date(post.date).toLocaleDateString('vi-VN')}
+                  </div>
+                  <h4 className="font-bold text-lg mb-3 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                  <div className="text-gray-600 text-sm line-clamp-2 mb-4" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+                  <div className="mt-auto text-red-600 font-bold text-sm flex items-center gap-2">
+                    Xem chi tiết <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </div>
+              </article>
+            </Link>
+          )) : (
+            <div className="col-span-full text-center py-10 text-gray-400 italic">
+              Đang cập nhật tin tức...
+            </div>
+          )}
         </div>
       </section>
     </div>
