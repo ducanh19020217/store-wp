@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 import { getCart, updateQuantity, removeFromCart, clearCart, getCartTotal, getCartCount } from '@/lib/cart';
 
@@ -107,9 +108,9 @@ export default function CartPage() {
                                 >
                                     <div className="flex gap-4 md:gap-6">
                                         {/* Product Image */}
-                                        <div className="w-20 h-20 md:w-28 md:h-28 bg-gray-100 rounded-lg flex items-center justify-center shrink-0 overflow-hidden">
+                                        <div className="w-20 h-20 md:w-28 md:h-28 bg-gray-100 rounded-lg flex items-center justify-center shrink-0 overflow-hidden relative">
                                             {item.image ? (
-                                                <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                                <Image src={item.image} alt={item.name} fill className="object-cover" />
                                             ) : (
                                                 <span className="text-2xl md:text-4xl opacity-30">📦</span>
                                             )}

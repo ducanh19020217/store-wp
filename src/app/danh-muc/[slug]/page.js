@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProductsByCategory, getCategories } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import { siteConfig } from '@/config/site';
@@ -67,10 +68,11 @@ export default async function CategoryPage({ params }) {
                                 >
                                     <div className="aspect-square bg-gray-50 flex items-center justify-center text-gray-300 font-bold relative overflow-hidden">
                                         {imageUrl ? (
-                                            <img
+                                            <Image
                                                 src={imageUrl}
                                                 alt={product.name}
-                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                fill
+                                                className="object-cover group-hover:scale-110 transition-transform duration-500"
                                             />
                                         ) : (
                                             <span className="text-lg uppercase italic">Ảnh Sản Phẩm</span>

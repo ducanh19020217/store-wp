@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPosts, getPostCategories } from '@/lib/api';
 import CategoryFilter from '@/components/CategoryFilter';
 import { Suspense } from 'react';
@@ -87,10 +88,11 @@ export default async function NewsPage({ searchParams }) {
                                 <div className="grid md:grid-cols-2 gap-0">
                                     <div className="aspect-video md:aspect-auto bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center relative overflow-hidden">
                                         {featuredPost._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
-                                            <img
+                                            <Image
                                                 src={featuredPost._embedded['wp:featuredmedia'][0].source_url}
                                                 alt={featuredPost.title.rendered}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
                                             />
                                         ) : (
                                             <div className="text-6xl opacity-30">📰</div>
@@ -146,10 +148,11 @@ export default async function NewsPage({ searchParams }) {
                                     <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all group h-full flex flex-col">
                                         <div className="aspect-video bg-gradient-to-br from-gray-100 to-blue-50 flex items-center justify-center relative overflow-hidden">
                                             {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
-                                                <img
+                                                <Image
                                                     src={post._embedded['wp:featuredmedia'][0].source_url}
                                                     alt={post.title.rendered}
-                                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                                                 />
                                             ) : (
                                                 <div className="text-5xl opacity-20">📄</div>

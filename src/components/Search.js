@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { searchProducts, getCategories } from '@/lib/api';
 
 export default function Search() {
@@ -128,9 +129,9 @@ export default function Search() {
                                             className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl transition-all group"
                                             onClick={() => setIsOpen(false)}
                                         >
-                                            <div className="w-12 h-12 bg-white rounded-lg border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                                            <div className="w-12 h-12 bg-white rounded-lg border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 relative">
                                                 {image ? (
-                                                    <img src={image} alt={product.name} className="w-full h-full object-cover" />
+                                                    <Image src={image} alt={product.name} fill className="object-cover" />
                                                 ) : (
                                                     <span className="text-xs text-gray-300">NO IMG</span>
                                                 )}
@@ -163,7 +164,7 @@ export default function Search() {
 
             {isOpen && query.length >= 2 && results.products.length === 0 && results.categories.length === 0 && !loading && (
                 <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 p-8 text-center z-50">
-                    <p className="text-gray-500 text-sm">Không tìm thấy kết quả nào cho "{query}"</p>
+                    <p className="text-gray-500 text-sm">Không tìm thấy kết quả nào cho &quot;{query}&quot;</p>
                 </div>
             )}
         </div>

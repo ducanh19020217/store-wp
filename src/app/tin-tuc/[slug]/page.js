@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPostBySlug, getPosts } from '@/lib/api';
 import { notFound } from 'next/navigation';
 
@@ -76,10 +77,11 @@ export default async function PostDetailPage({ params }) {
                             {/* Featured Image */}
                             {post._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
                                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-red-100 relative overflow-hidden">
-                                    <img
+                                    <Image
                                         src={post._embedded['wp:featuredmedia'][0].source_url}
                                         alt={post.title.rendered}
-                                        className="w-full h-full object-cover"
+                                        fill
+                                        className="object-cover"
                                     />
                                 </div>
                             )}
@@ -205,12 +207,13 @@ export default async function PostDetailPage({ params }) {
                                 {relatedPosts.length > 0 ? relatedPosts.map((relatedPost) => (
                                     <Link key={relatedPost.id} href={`/tin-tuc/${relatedPost.slug}`}>
                                         <div className="group cursor-pointer">
-                                            <div className="aspect-video bg-gray-100 rounded-xl mb-3 overflow-hidden">
+                                            <div className="aspect-video bg-gray-100 rounded-xl mb-3 overflow-hidden relative">
                                                 {relatedPost._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
-                                                    <img
+                                                    <Image
                                                         src={relatedPost._embedded['wp:featuredmedia'][0].source_url}
                                                         alt={relatedPost.title.rendered}
-                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                                        fill
+                                                        className="object-cover group-hover:scale-110 transition-transform duration-300"
                                                     />
                                                 ) : (
                                                     <div className="w-full h-full flex items-center justify-center text-gray-300 text-3xl">📄</div>

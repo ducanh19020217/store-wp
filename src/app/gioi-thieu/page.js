@@ -96,7 +96,7 @@ export default function AboutPage() {
                         <p>
                             Trải qua hơn <strong>10 năm hình thành và phát triển</strong>, chúng tôi đã không ngừng nỗ lực để trở thành
                             cầu nối đáng tin cậy giữa các thương hiệu thiết bị may mặc hàng đầu thế giới với các doanh nghiệp,
-                            xưởng may tại Việt Nam. Với phương châm <em>"Chất lượng tạo nên uy tín"</em>, mỗi sản phẩm chúng tôi
+                            xưởng may tại Việt Nam. Với phương châm <em>&quot;Chất lượng tạo nên uy tín&quot;</em>, mỗi sản phẩm chúng tôi
                             cung cấp đều được tuyển chọn kỹ lưỡng, đảm bảo xuất xứ rõ ràng và chế độ bảo hành chu đáo.
                         </p>
 
@@ -108,7 +108,7 @@ export default function AboutPage() {
                         </p>
 
                         <blockquote className="border-l-4 border-red-600 pl-6 italic text-xl text-gray-800 bg-red-50 py-4 my-8">
-                            "Sự hài lòng của khách hàng chính là động lực lớn nhất để chúng tôi không ngừng hoàn thiện và phát triển."
+                            &quot;Sự hài lòng của khách hàng chính là động lực lớn nhất để chúng tôi không ngừng hoàn thiện và phát triển.&quot;
                         </blockquote>
                     </div>
                 </div>

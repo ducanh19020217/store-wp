@@ -1,6 +1,7 @@
 import { getProductBySlug } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 
 export async function generateMetadata({ params }) {
@@ -64,10 +65,11 @@ export default async function ProductPage({ params }) {
                         <div className="p-6 md:p-8 bg-gray-50 flex items-center justify-center relative group">
                             {imageUrl ? (
                                 <div className="relative w-full aspect-square md:aspect-[4/3] rounded-xl overflow-hidden bg-white shadow-sm">
-                                    <img
+                                    <Image
                                         src={imageUrl}
                                         alt={product.name}
-                                        className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                                        fill
+                                        className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                                     />
                                 </div>
                             ) : (

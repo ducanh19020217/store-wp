@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProducts, getCategories, getPosts } from '@/lib/api';
 import { siteConfig } from '@/config/site';
 
@@ -103,9 +104,9 @@ export default async function Home() {
                 href={`/danh-muc/${cat.slug}`}
                 className="group flex flex-col items-center text-center p-4 md:p-6 rounded-xl hover:bg-red-50 transition-all border border-gray-50 hover:border-red-200 hover:shadow-md"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center border-2 border-gray-100 group-hover:border-red-200">
+                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center border-2 border-gray-100 group-hover:border-red-200 relative">
                   {cat.image?.src ? (
-                    <img src={cat.image.src} alt={cat.name} className="w-full h-full object-cover" />
+                    <Image src={cat.image.src} alt={cat.name} fill className="object-cover" />
                   ) : (
                     <span className="text-2xl md:text-3xl">📦</span>
                   )}
@@ -143,10 +144,11 @@ export default async function Home() {
             >
               <div className="aspect-square bg-gray-50 flex items-center justify-center text-gray-300 font-bold relative overflow-hidden">
                 {product.images?.[0]?.src ? (
-                  <img
+                  <Image
                     src={product.images[0].src}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 ) : (
                   <span className="text-lg uppercase italic">Ảnh Sản Phẩm</span>
@@ -215,10 +217,11 @@ export default async function Home() {
               <article className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all h-full flex flex-col">
                 <div className="aspect-video bg-gray-100 relative overflow-hidden">
                   {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
-                    <img
+                    <Image
                       src={post._embedded['wp:featuredmedia'][0].source_url}
                       alt={post.title.rendered}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-4xl opacity-20">📰</div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProducts } from '@/lib/api';
 import { siteConfig } from '@/config/site';
 
@@ -62,10 +63,11 @@ export default async function ShopPage() {
                             >
                                 <div className="aspect-square bg-gray-50 flex items-center justify-center text-gray-300 font-bold relative overflow-hidden">
                                     {product._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
-                                        <img
+                                        <Image
                                             src={product._embedded['wp:featuredmedia'][0].source_url}
                                             alt={product.name}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            fill
+                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     ) : (
                                         <span className="text-lg uppercase italic">Ảnh Sản Phẩm</span>
