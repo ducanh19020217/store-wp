@@ -16,14 +16,14 @@ export async function generateMetadata({ params }) {
         }
 
         return {
-            title: `${post.title.rendered} | Tin Tức - Điện Máy Hoàng Lâm`,
+            title: `${post.title.rendered} | Tin Tức - Điện Máy Hải Anh`,
             description: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 160),
             openGraph: {
                 title: post.title.rendered,
                 description: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 160),
                 type: 'article',
                 publishedTime: post.date,
-                authors: ['Điện Máy Tổng Hợp Hoàng Lâm'],
+                authors: ['Điện Máy Tổng Hợp Hải Anh'],
             },
         };
     } catch (e) {
@@ -59,9 +59,9 @@ export default async function PostDetailPage({ params }) {
             <div className="bg-white border-b">
                 <div className="container-custom py-4">
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Link href="/" className="hover:text-red-600 transition-colors">Trang chủ</Link>
+                        <Link href="/" className="hover:text-[#F97316] transition-colors">Trang chủ</Link>
                         <span>/</span>
-                        <Link href="/tin-tuc" className="hover:text-red-600 transition-colors">Tin tức</Link>
+                        <Link href="/tin-tuc" className="hover:text-[#F97316] transition-colors">Tin tức</Link>
                         <span>/</span>
                         <span className="text-gray-900 font-medium line-clamp-1">{post.title.rendered.replace(/<[^>]*>/g, '')}</span>
                     </div>
@@ -76,7 +76,7 @@ export default async function PostDetailPage({ params }) {
                         <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-8">
                             {/* Featured Image */}
                             {post._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
-                                <div className="aspect-video bg-gradient-to-br from-blue-100 to-red-100 relative overflow-hidden">
+                                <div className="aspect-video bg-gradient-to-br from-blue-100 to-orange-100 relative overflow-hidden">
                                     <Image
                                         src={post._embedded['wp:featuredmedia'][0].source_url}
                                         alt={post.title.rendered}
@@ -90,7 +90,7 @@ export default async function PostDetailPage({ params }) {
                                 {/* Meta Info */}
                                 <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-gray-600">
                                     <div className="flex items-center gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
                                         <span>{new Date(post.date).toLocaleDateString('vi-VN', {
@@ -100,13 +100,13 @@ export default async function PostDetailPage({ params }) {
                                         })}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg>
                                         <span>Admin</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </svg>
@@ -130,14 +130,14 @@ export default async function PostDetailPage({ params }) {
                                 <div
                                     className="prose prose-lg max-w-none
                     prose-headings:font-black prose-headings:text-gray-900
-                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-l-4 prose-h2:border-red-600 prose-h2:pl-4
+                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-l-4 prose-h2:border-[#F97316] prose-h2:pl-4
                     prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
                     prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-                    prose-a:text-red-600 prose-a:font-bold prose-a:no-underline hover:prose-a:underline
+                    prose-a:text-[#F97316] prose-a:font-bold prose-a:no-underline hover:prose-a:underline
                     prose-strong:text-gray-900 prose-strong:font-black
                     prose-ul:my-6 prose-li:text-gray-700 prose-li:mb-2
                     prose-img:rounded-2xl prose-img:shadow-lg
-                    prose-blockquote:border-l-4 prose-blockquote:border-red-600 prose-blockquote:bg-red-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:italic prose-blockquote:text-gray-800"
+                    prose-blockquote:border-l-4 prose-blockquote:border-[#F97316] prose-blockquote:bg-orange-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:italic prose-blockquote:text-gray-800"
                                     dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                                 />
 
@@ -146,13 +146,13 @@ export default async function PostDetailPage({ params }) {
                                     <div className="flex flex-wrap items-center gap-3">
                                         <span className="font-black text-gray-900">Tags:</span>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-bold hover:bg-red-600 hover:text-white transition-colors cursor-pointer">
+                                            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-bold hover:bg-[#F97316] hover:text-white transition-colors cursor-pointer">
                                                 Máy may công nghiệp
                                             </span>
-                                            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-bold hover:bg-red-600 hover:text-white transition-colors cursor-pointer">
+                                            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-bold hover:bg-[#F97316] hover:text-white transition-colors cursor-pointer">
                                                 Công nghệ
                                             </span>
-                                            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-bold hover:bg-red-600 hover:text-white transition-colors cursor-pointer">
+                                            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-bold hover:bg-[#F97316] hover:text-white transition-colors cursor-pointer">
                                                 Kinh nghiệm
                                             </span>
                                         </div>
@@ -170,7 +170,7 @@ export default async function PostDetailPage({ params }) {
                                             <button className="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform">
                                                 <span className="font-bold">t</span>
                                             </button>
-                                            <button className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                            <button className="w-10 h-10 bg-[#F97316] text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform">
                                                 <span className="font-bold">in</span>
                                             </button>
                                         </div>
@@ -180,13 +180,13 @@ export default async function PostDetailPage({ params }) {
                         </div>
 
                         {/* Author Box */}
-                        <div className="bg-gradient-to-r from-blue-900 to-red-600 text-white rounded-2xl p-8 mb-8">
+                        <div className="bg-gradient-to-r from-blue-900 to-[#F97316] text-white rounded-2xl p-8 mb-8">
                             <div className="flex items-start gap-6">
                                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-blue-900 font-black text-2xl shrink-0">
                                     HL
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-black mb-2">Điện Máy Tổng Hợp Hoàng Lâm</h3>
+                                    <h3 className="text-2xl font-black mb-2">Điện Máy Tổng Hợp Hải Anh</h3>
                                     <p className="text-blue-100 leading-relaxed">
                                         Chuyên gia hàng đầu trong lĩnh vực cung cấp thiết bị may mặc công nghiệp.
                                         Chia sẻ kiến thức, kinh nghiệm và xu hướng mới nhất trong ngành.
@@ -200,7 +200,7 @@ export default async function PostDetailPage({ params }) {
                     <aside className="lg:col-span-1">
                         {/* Related Posts */}
                         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 sticky top-24">
-                            <h3 className="text-2xl font-black mb-6 border-b-2 border-red-600 pb-3">
+                            <h3 className="text-2xl font-black mb-6 border-b-2 border-[#F97316] pb-3">
                                 Bài Viết Liên Quan
                             </h3>
                             <div className="space-y-6">
@@ -220,7 +220,7 @@ export default async function PostDetailPage({ params }) {
                                                 )}
                                             </div>
                                             <h4
-                                                className="font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight"
+                                                className="font-bold text-gray-900 group-hover:text-[#F97316] transition-colors line-clamp-2 leading-tight"
                                                 dangerouslySetInnerHTML={{ __html: relatedPost.title.rendered }}
                                             />
                                             <p className="text-sm text-gray-500 mt-2">
@@ -235,15 +235,15 @@ export default async function PostDetailPage({ params }) {
                         </div>
 
                         {/* CTA Box */}
-                        <div className="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl p-6 text-center">
+                        <div className="bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white rounded-2xl p-6 text-center">
                             <div className="text-4xl mb-4">📞</div>
                             <h3 className="text-xl font-black mb-3">Cần Tư Vấn?</h3>
-                            <p className="text-red-100 mb-6 text-sm">
+                            <p className="text-orange-100 mb-6 text-sm">
                                 Liên hệ ngay với chúng tôi để được hỗ trợ tốt nhất
                             </p>
                             <a
                                 href="tel:0914639068"
-                                className="block bg-white text-red-600 py-3 px-6 rounded-xl font-black hover:bg-gray-100 transition-all"
+                                className="block bg-white text-[#F97316] py-3 px-6 rounded-xl font-black hover:bg-gray-100 transition-all"
                             >
                                 0914 639 068
                             </a>

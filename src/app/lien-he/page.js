@@ -1,11 +1,11 @@
 import { siteConfig } from '@/config/site';
 
 export const metadata = {
-    title: "Liên Hệ - Dung Đỗ | Phụ Kiện Nghề May Chuyên Nghiệp",
-    description: `Liên hệ Dung Đỗ để được tư vấn và báo giá phụ kiện nghề may. Hotline: ${siteConfig?.contact?.phone || '0123 456 789'}. Địa chỉ: ${siteConfig?.contact?.addressShort || 'Hải Dương'}. Hỗ trợ 24/7.`,
-    keywords: "liên hệ phụ kiện may, tư vấn phụ kiện nghề may, báo giá phụ kiện may, Dung Đỗ",
+    title: "Liên Hệ - Hải Anh | Phụ Kiện Nghề May Chuyên Nghiệp",
+    description: `Liên hệ Hải Anh để được tư vấn và báo giá phụ kiện nghề may. Hotline: ${siteConfig?.contact?.phone || '0123 456 789'}. Địa chỉ: ${siteConfig?.contact?.addressShort || 'Hải Dương'}. Hỗ trợ 24/7.`,
+    keywords: "liên hệ phụ kiện may, tư vấn phụ kiện nghề may, báo giá phụ kiện may, Hải Anh",
     openGraph: {
-        title: "Liên Hệ - Dung Đỗ Phụ Kiện Nghề May",
+        title: "Liên Hệ - Hải Anh Phụ Kiện Nghề May",
         description: "Liên hệ ngay để được tư vấn và hỗ trợ tốt nhất",
         type: "website",
     },
@@ -42,7 +42,7 @@ export default function ContactPage() {
     return (
         <div className="bg-gray-50 min-h-screen">
             {/* Hero Section - Mobile First */}
-            <section className="bg-gradient-to-br from-red-600 via-red-700 to-blue-900 text-white py-12 md:py-20">
+            <section className="bg-gradient-to-br from-[#F97316] via-#EA580C to-blue-900 text-white py-12 md:py-20">
                 <div className="container-custom">
                     <div className="text-center max-w-3xl mx-auto px-4">
                         <div className="mb-6 md:mb-8">
@@ -55,8 +55,8 @@ export default function ContactPage() {
                         <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 uppercase leading-tight">
                             Liên Hệ Với Chúng Tôi
                         </h1>
-                        <p className="text-lg md:text-2xl font-medium text-red-100 leading-relaxed">
-                            Dung Đỗ - Phụ Kiện Nghề May Chuyên Nghiệp
+                        <p className="text-lg md:text-2xl font-medium text-orange-100 leading-relaxed">
+                            Hải Anh - Phụ Kiện Nghề May Chuyên Nghiệp
                         </p>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                                 {info.link ? (
                                     <a
                                         href={info.link}
-                                        className="text-red-600 font-bold text-sm md:text-base hover:underline break-words"
+                                        className="text-[#F97316] font-bold text-sm md:text-base hover:underline break-words"
                                     >
                                         {info.content}
                                     </a>
@@ -103,7 +103,7 @@ export default function ContactPage() {
                         <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl p-6 md:p-10">
                             <div className="mb-6 md:mb-8">
                                 <div className="flex items-center gap-3 mb-3 md:mb-4">
-                                    <div className="h-8 md:h-10 w-1 md:w-2 bg-red-600"></div>
+                                    <div className="h-8 md:h-10 w-1 md:w-2 bg-[#F97316]"></div>
                                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase">
                                         Gửi Tin Nhắn
                                     </h2>
@@ -116,12 +116,12 @@ export default function ContactPage() {
                             <form className="space-y-4 md:space-y-6">
                                 <div>
                                     <label className="block text-sm md:text-base font-bold text-gray-900 mb-2">
-                                        Họ và Tên <span className="text-red-600">*</span>
+                                        Họ và Tên <span className="text-[#F97316]">*</span>
                                     </label>
                                     <input
                                         type="text"
                                         required
-                                        className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-red-600 focus:outline-none transition-colors text-sm md:text-base"
+                                        className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-[#F97316] focus:outline-none transition-colors text-sm md:text-base"
                                         placeholder="Nhập họ và tên của bạn"
                                     />
                                 </div>
@@ -129,12 +129,12 @@ export default function ContactPage() {
                                 <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                                     <div>
                                         <label className="block text-sm md:text-base font-bold text-gray-900 mb-2">
-                                            Số Điện Thoại <span className="text-red-600">*</span>
+                                            Số Điện Thoại <span className="text-[#F97316]">*</span>
                                         </label>
                                         <input
                                             type="tel"
                                             required
-                                            className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-red-600 focus:outline-none transition-colors text-sm md:text-base"
+                                            className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-[#F97316] focus:outline-none transition-colors text-sm md:text-base"
                                             placeholder="0912 345 678"
                                         />
                                     </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                                         </label>
                                         <input
                                             type="email"
-                                            className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-red-600 focus:outline-none transition-colors text-sm md:text-base"
+                                            className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-[#F97316] focus:outline-none transition-colors text-sm md:text-base"
                                             placeholder="email@example.com"
                                         />
                                     </div>
@@ -155,7 +155,7 @@ export default function ContactPage() {
                                     <label className="block text-sm md:text-base font-bold text-gray-900 mb-2">
                                         Chủ Đề
                                     </label>
-                                    <select className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-red-600 focus:outline-none transition-colors text-sm md:text-base">
+                                    <select className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-[#F97316] focus:outline-none transition-colors text-sm md:text-base">
                                         <option>Tư vấn sản phẩm</option>
                                         <option>Báo giá</option>
                                         <option>Bảo hành - Sửa chữa</option>
@@ -165,19 +165,19 @@ export default function ContactPage() {
 
                                 <div>
                                     <label className="block text-sm md:text-base font-bold text-gray-900 mb-2">
-                                        Nội Dung <span className="text-red-600">*</span>
+                                        Nội Dung <span className="text-[#F97316]">*</span>
                                     </label>
                                     <textarea
                                         required
                                         rows={5}
-                                        className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-red-600 focus:outline-none transition-colors resize-none text-sm md:text-base"
+                                        className="w-full px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-xl focus:border-[#F97316] focus:outline-none transition-colors resize-none text-sm md:text-base"
                                         placeholder="Nhập nội dung cần tư vấn..."
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-red-600 text-white py-3 md:py-5 rounded-xl font-black text-base md:text-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-xl uppercase"
+                                    className="w-full bg-[#F97316] text-white py-3 md:py-5 rounded-xl font-black text-base md:text-lg hover:bg-#EA580C transition-all shadow-lg hover:shadow-xl uppercase"
                                 >
                                     Gửi Tin Nhắn
                                 </button>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                             {/* Why Contact Us */}
                             <div className="bg-gradient-to-br from-blue-900 to-blue-800 text-white rounded-2xl md:rounded-3xl p-6 md:p-8">
                                 <h3 className="text-xl md:text-2xl font-black mb-4 md:mb-6 uppercase">
-                                    Tại Sao Chọn Dung Đỗ?
+                                    Tại Sao Chọn Hải Anh?
                                 </h3>
                                 <ul className="space-y-3 md:space-y-4">
                                     <li className="flex items-start gap-3">
@@ -230,21 +230,21 @@ export default function ContactPage() {
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
                                     className="md:h-80 lg:h-96"
-                                    title="Bản đồ Dung Đỗ - Hải Dương"
+                                    title="Bản đồ Hải Anh - Hải Dương"
                                 ></iframe>
                             </div>
 
                             {/* Quick Contact - Responsive padding */}
-                            <div className="bg-red-600 text-white rounded-2xl md:rounded-3xl p-6 md:p-8 text-center">
+                            <div className="bg-[#F97316] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 text-center">
                                 <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 uppercase">
                                     Cần Hỗ Trợ Ngay?
                                 </h3>
-                                <p className="text-sm md:text-base text-red-100 mb-4 md:mb-6">
+                                <p className="text-sm md:text-base text-orange-100 mb-4 md:mb-6">
                                     Gọi hotline để được tư vấn trực tiếp
                                 </p>
                                 <a
                                     href="tel:0914639068"
-                                    className="inline-block bg-white text-red-600 px-6 md:px-10 py-3 md:py-5 rounded-xl font-black text-lg md:text-2xl hover:bg-gray-100 transition-all shadow-2xl"
+                                    className="inline-block bg-white text-[#F97316] px-6 md:px-10 py-3 md:py-5 rounded-xl font-black text-lg md:text-2xl hover:bg-gray-100 transition-all shadow-2xl"
                                 >
                                     📞 0914 639 068
                                 </a>
@@ -269,7 +269,7 @@ export default function ContactPage() {
                     <div className="max-w-3xl mx-auto space-y-4">
                         {[
                             {
-                                q: "Dung Đỗ có giao hàng toàn quốc không?",
+                                q: "Hải Anh có giao hàng toàn quốc không?",
                                 a: "Có, chúng tôi giao hàng toàn quốc trong vòng 24-48h. Miễn phí ship cho đơn hàng trên 500.000đ."
                             },
                             {
@@ -287,7 +287,7 @@ export default function ContactPage() {
                             >
                                 <summary className="font-black text-sm md:text-base lg:text-lg text-gray-900 cursor-pointer list-none flex justify-between items-center">
                                     <span className="pr-4">{faq.q}</span>
-                                    <span className="text-red-600 text-xl md:text-2xl group-open:rotate-180 transition-transform shrink-0">
+                                    <span className="text-[#F97316] text-xl md:text-2xl group-open:rotate-180 transition-transform shrink-0">
                                         ▼
                                     </span>
                                 </summary>

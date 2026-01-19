@@ -49,9 +49,9 @@ export default async function ProductPage({ params }) {
             <div className="bg-white border-b border-gray-200">
                 <div className="container-custom py-4 px-4">
                     <div className="flex items-center text-sm text-gray-500">
-                        <Link href="/" className="hover:text-red-600 transition-colors">Trang chủ</Link>
+                        <Link href="/" className="hover:text-[#F97316] transition-colors">Trang chủ</Link>
                         <span className="mx-2">/</span>
-                        <Link href="/san-pham" className="hover:text-red-600 transition-colors">Sản phẩm</Link>
+                        <Link href="/san-pham" className="hover:text-[#F97316] transition-colors">Sản phẩm</Link>
                         <span className="mx-2">/</span>
                         <span className="text-gray-900 font-medium truncate max-w-[200px] md:max-w-none">{product.name}</span>
                     </div>
@@ -79,11 +79,11 @@ export default async function ProductPage({ params }) {
                             )}
 
                             <div className="absolute top-8 left-8 flex flex-col gap-2">
-                                <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                                <span className="bg-[#F97316] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
                                     Chính hãng
                                 </span>
                                 {onSale && (
-                                    <span className="bg-yellow-400 text-red-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg animate-pulse">
+                                    <span className="bg-yellow-400 text-[#F97316] 900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg animate-pulse">
                                         Giảm {discountPercentage}%
                                     </span>
                                 )}
@@ -107,7 +107,7 @@ export default async function ProductPage({ params }) {
                             <div className="mb-8">
                                 {onSale ? (
                                     <div className="flex items-end gap-3">
-                                        <p className="text-3xl md:text-4xl font-black text-red-600">
+                                        <p className="text-3xl md:text-4xl font-black text-[#F97316]">
                                             {salePrice.toLocaleString('vi-VN')} đ
                                         </p>
                                         <p className="text-xl text-gray-400 font-bold line-through mb-1">
@@ -115,7 +115,7 @@ export default async function ProductPage({ params }) {
                                         </p>
                                     </div>
                                 ) : (
-                                    <p className="text-3xl md:text-4xl font-black text-red-600">
+                                    <p className="text-3xl md:text-4xl font-black text-[#F97316]">
                                         {price > 0
                                             ? `${price.toLocaleString('vi-VN')} đ`
                                             : 'Liên hệ báo giá'}
@@ -162,13 +162,13 @@ export default async function ProductPage({ params }) {
                             <div className="flex flex-col sm:flex-row gap-4 mt-auto">
                                 <Link
                                     href="/lien-he"
-                                    className="flex-1 bg-red-600 text-white text-center py-4 rounded-xl font-bold uppercase tracking-wide hover:bg-red-700 transition-all shadow-lg hover:shadow-red-200 transform hover:-translate-y-1"
+                                    className="flex-1 bg-[#F97316] text-white text-center py-4 rounded-xl font-bold uppercase tracking-wide hover:bg-#EA580C transition-all shadow-lg hover:shadow-orange-200 transform hover:-translate-y-1"
                                 >
                                     Liên hệ mua ngay
                                 </Link>
                                 <a
                                     href={`tel:${siteConfig.contact?.phone || ''}`}
-                                    className="flex-1 bg-white text-gray-900 border-2 border-gray-200 text-center py-4 rounded-xl font-bold uppercase tracking-wide hover:border-red-600 hover:text-red-600 transition-all"
+                                    className="flex-1 bg-white text-gray-900 border-2 border-gray-200 text-center py-4 rounded-xl font-bold uppercase tracking-wide hover:border-[#F97316] hover:text-[#F97316] transition-all"
                                 >
                                     Tư vấn: {siteConfig.contact?.phone || '0909.xxx.xxx'}
                                 </a>
@@ -200,7 +200,7 @@ export default async function ProductPage({ params }) {
                         </div>
                         <div className="p-6 md:p-10">
                             <div
-                                className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-red-600 hover:prose-a:text-red-700 prose-img:rounded-xl"
+                                className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-[#F97316] hover:prose-a:text-#EA580C prose-img:rounded-xl"
                                 dangerouslySetInnerHTML={{ __html: product.description || '' }}
                             />
                         </div>

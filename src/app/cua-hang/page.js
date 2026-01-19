@@ -37,7 +37,7 @@ export default async function ShopPage() {
             {/* Breadcrumb */}
             <div className="container-custom px-4 mb-6 md:mb-8">
                 <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Link href="/" className="hover:text-red-600 transition-colors">Trang chủ</Link>
+                    <Link href="/" className="hover:text-[#F97316] transition-colors">Trang chủ</Link>
                     <span>/</span>
                     <span className="text-gray-900 font-medium">Cửa hàng</span>
                 </div>
@@ -75,16 +75,16 @@ export default async function ShopPage() {
                                     <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>
                                 <div className="p-4 md:p-6">
-                                    <h4 className="font-bold text-base md:text-lg mb-3 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight">
+                                    <h4 className="font-bold text-base md:text-lg mb-3 group-hover:text-[#F97316] transition-colors line-clamp-2 leading-tight">
                                         {product.name}
                                     </h4>
-                                    <p className="text-red-600 font-black text-xl md:text-2xl mb-4">
+                                    <p className="text-[#F97316] font-black text-xl md:text-2xl mb-4">
                                         {product.price && product.price > 0
                                             ? `${Number(product.price).toLocaleString('vi-VN')} đ`
                                             : 'Liên hệ'
                                         }
                                     </p>
-                                    <button className="w-full bg-white text-red-600 border-2 border-red-600 py-2.5 md:py-3 rounded-xl font-black hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm uppercase text-xs md:text-sm tracking-widest">
+                                    <button className="w-full bg-white text-[#F97316] border-2 border-[#F97316] py-2.5 md:py-3 rounded-xl font-black hover:bg-[#F97316] hover:text-white transition-all duration-300 shadow-sm uppercase text-xs md:text-sm tracking-widest">
                                         Xem chi tiết
                                     </button>
                                 </div>

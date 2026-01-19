@@ -50,7 +50,7 @@ export default function CartPage() {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <div className="w-16 h-16 border-4 border-[#F97316] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                     <p className="text-gray-600">Đang tải giỏ hàng...</p>
                 </div>
             </div>
@@ -62,7 +62,7 @@ export default function CartPage() {
             {/* Breadcrumb */}
             <div className="container-custom px-4 mb-6 md:mb-8">
                 <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Link href="/" className="hover:text-red-600 transition-colors">Trang chủ</Link>
+                    <Link href="/" className="hover:text-[#F97316] transition-colors">Trang chủ</Link>
                     <span>/</span>
                     <span className="text-gray-900 font-medium">Giỏ hàng</span>
                 </div>
@@ -90,7 +90,7 @@ export default function CartPage() {
                             </p>
                             <Link
                                 href="/"
-                                className="inline-block bg-red-600 text-white px-8 py-4 rounded-xl font-black hover:bg-red-700 transition-all shadow-lg"
+                                className="inline-block bg-[#F97316] text-white px-8 py-4 rounded-xl font-black hover:bg-#EA580C transition-all shadow-lg"
                             >
                                 Tiếp Tục Mua Sắm
                             </Link>
@@ -120,13 +120,13 @@ export default function CartPage() {
                                         <div className="flex-1 min-w-0">
                                             <Link
                                                 href={`/san-pham/${item.slug}`}
-                                                className="font-black text-base md:text-lg text-gray-900 hover:text-red-600 transition-colors line-clamp-2 mb-2 block"
+                                                className="font-black text-base md:text-lg text-gray-900 hover:text-[#F97316] transition-colors line-clamp-2 mb-2 block"
                                             >
                                                 {item.name}
                                             </Link>
 
                                             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
-                                                <p className="text-red-600 font-black text-lg md:text-xl">
+                                                <p className="text-[#F97316] font-black text-lg md:text-xl">
                                                     {item.price > 0
                                                         ? `${(item.price * item.quantity).toLocaleString('vi-VN')} đ`
                                                         : 'Liên hệ'
@@ -165,7 +165,7 @@ export default function CartPage() {
 
                                                 <button
                                                     onClick={() => handleRemove(item.id)}
-                                                    className="text-red-600 hover:text-red-700 font-bold text-sm md:text-base flex items-center gap-1"
+                                                    className="text-[#F97316] hover:text-#EA580C font-bold text-sm md:text-base flex items-center gap-1"
                                                 >
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -181,7 +181,7 @@ export default function CartPage() {
                             {/* Clear Cart Button */}
                             <button
                                 onClick={handleClearCart}
-                                className="w-full md:w-auto px-6 py-3 border-2 border-red-600 text-red-600 rounded-xl font-bold hover:bg-red-50 transition-all"
+                                className="w-full md:w-auto px-6 py-3 border-2 border-[#F97316] text-[#F97316] rounded-xl font-bold hover:bg-orange-50 transition-all"
                             >
                                 Xóa Toàn Bộ Giỏ Hàng
                             </button>
@@ -206,7 +206,7 @@ export default function CartPage() {
                                     <div className="border-t-2 border-gray-100 pt-4">
                                         <div className="flex justify-between items-center">
                                             <span className="text-lg font-black">Tổng cộng</span>
-                                            <span className="text-2xl md:text-3xl font-black text-red-600">
+                                            <span className="text-2xl md:text-3xl font-black text-[#F97316]">
                                                 {total.toLocaleString('vi-VN')} đ
                                             </span>
                                         </div>
@@ -222,14 +222,14 @@ export default function CartPage() {
 
                                 <Link
                                     href={`tel:${siteConfig.contact.phoneRaw}`}
-                                    className="block w-full bg-red-600 text-white py-4 rounded-xl font-black text-center hover:bg-red-700 transition-all shadow-lg"
+                                    className="block w-full bg-[#F97316] text-white py-4 rounded-xl font-black text-center hover:bg-#EA580C transition-all shadow-lg"
                                 >
                                     📞 Gọi Đặt Hàng: {siteConfig.contact.phone}
                                 </Link>
 
                                 <Link
                                     href="/"
-                                    className="block w-full text-center text-blue-900 font-bold mt-4 hover:text-red-600 transition-colors"
+                                    className="block w-full text-center text-blue-900 font-bold mt-4 hover:text-[#F97316] transition-colors"
                                 >
                                     ← Tiếp tục mua sắm
                                 </Link>

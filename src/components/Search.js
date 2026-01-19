@@ -71,7 +71,7 @@ export default function Search() {
                 <input
                     type="text"
                     placeholder="Tìm kiếm sản phẩm, danh mục..."
-                    className="w-full pl-12 pr-4 py-3 bg-gray-100 border-transparent focus:bg-white focus:border-red-600 rounded-xl transition-all outline-none shadow-sm"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-100 border-transparent focus:bg-white focus:border-[#F97316] rounded-xl transition-all outline-none shadow-sm"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onFocus={() => query.length >= 2 && setIsOpen(true)}
@@ -83,7 +83,7 @@ export default function Search() {
                 </div>
                 {loading && (
                     <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-600"></div>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#F97316]"></div>
                     </div>
                 )}
             </div>
@@ -137,18 +137,17 @@ export default function Search() {
                                                 )}
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <h4 className="text-sm font-bold text-gray-900 truncate group-hover:text-red-600 transition-colors">
+                                                <h4 className="text-sm font-bold text-gray-900 truncate group-hover:text-[#F97316] transition-colors">
                                                     {product.name}
                                                 </h4>
-                                                <div className="flex items-center gap-2 mt-0.5">
-                                                    {onSale ? (
+                                                <div className="flex items-center gap-2 mt-1">
+                                                    {price > 0 ? (
                                                         <>
-                                                            <span className="text-xs font-bold text-red-600">{price.toLocaleString('vi-VN')}đ</span>
-                                                            <span className="text-[10px] text-gray-400 line-through">{regularPrice.toLocaleString('vi-VN')}đ</span>
+                                                            <span className="text-xs font-bold text-[#F97316]">{price.toLocaleString('vi-VN')}đ</span>
                                                         </>
                                                     ) : (
-                                                        <span className="text-xs font-bold text-red-600">
-                                                            {price > 0 ? `${price.toLocaleString('vi-VN')}đ` : 'Liên hệ'}
+                                                        <span className="text-xs font-bold text-[#F97316]">
+                                                            Liên hệ
                                                         </span>
                                                     )}
                                                 </div>

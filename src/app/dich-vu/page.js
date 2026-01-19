@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
 export const metadata = {
-    title: "Dịch Vụ - Điện Máy Tổng Hợp Hoàng Lâm | Tư Vấn, Lắp Đặt, Bảo Hành Máy May",
+    title: "Dịch Vụ - Điện Máy Tổng Hợp Hải Anh | Tư Vấn, Lắp Đặt, Bảo Hành Máy May",
     description: "Dịch vụ chuyên nghiệp: Tư vấn thiết bị may mặc, lắp đặt tận nơi, bảo hành chu đáo, đào tạo vận hành, cho thuê máy may công nghiệp. Hotline: 0914 639 068",
     keywords: "dịch vụ máy may, lắp đặt máy may, bảo hành máy may, sửa chữa máy may công nghiệp, cho thuê máy may",
     openGraph: {
-        title: "Dịch Vụ Chuyên Nghiệp - Điện Máy Tổng Hợp Hoàng Lâm",
+        title: "Dịch Vụ Chuyên Nghiệp - Điện Máy Tổng Hợp Hải Anh",
         description: "Tư vấn, lắp đặt, bảo hành, đào tạo vận hành máy may công nghiệp chuyên nghiệp",
         type: "website",
     },
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                 "Sửa chữa tận nơi trong vòng 24h",
                 "Phụ tùng thay thế chính hãng"
             ],
-            color: "from-red-500 to-red-600"
+            color: "from-orange-500 to-[#F97316]"
         },
         {
             icon: "🔄",
@@ -99,7 +99,7 @@ export default function ServicesPage() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-red-600 via-red-700 to-blue-900 text-white py-24 overflow-hidden">
+            <section className="relative bg-gradient-to-br from-[#F97316] via-#EA580C to-blue-900 text-white py-24 overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
                     <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
@@ -109,11 +109,11 @@ export default function ServicesPage() {
                         <h1 className="text-5xl md:text-6xl font-black mb-6 uppercase tracking-tight">
                             Dịch Vụ Chuyên Nghiệp
                         </h1>
-                        <p className="text-2xl font-medium text-red-100 leading-relaxed">
+                        <p className="text-2xl font-medium text-orange-100 leading-relaxed">
                             Giải Pháp Toàn Diện Cho Ngành May Mặc - Từ Tư Vấn Đến Bảo Hành
                         </p>
                         <div className="mt-10 flex flex-wrap gap-4 justify-center">
-                            <a href="tel:0914639068" className="bg-white text-red-600 px-8 py-4 rounded-xl font-black hover:bg-gray-100 transition-all shadow-2xl">
+                            <a href="tel:0914639068" className="bg-white text-[#F97316] px-8 py-4 rounded-xl font-black hover:bg-gray-100 transition-all shadow-2xl">
                                 📞 Hotline: 0914 639 068
                             </a>
                             <Link href="/lien-he" className="bg-blue-900 text-white px-8 py-4 rounded-xl font-black hover:bg-blue-800 transition-all shadow-2xl">
@@ -129,12 +129,12 @@ export default function ServicesPage() {
                 <div className="container-custom">
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-3 mb-4">
-                            <div className="h-1 w-12 bg-red-600"></div>
+                            <div className="h-1 w-12 bg-[#F97316]"></div>
                             <h2 className="text-4xl font-black uppercase">Các Dịch Vụ Của Chúng Tôi</h2>
-                            <div className="h-1 w-12 bg-red-600"></div>
+                            <div className="h-1 w-12 bg-[#F97316]"></div>
                         </div>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Hoàng Lâm cung cấp đầy đủ các dịch vụ hỗ trợ doanh nghiệp may mặc vận hành hiệu quả và bền vững
+                            Hải Anh cung cấp đầy đủ các dịch vụ hỗ trợ doanh nghiệp may mặc vận hành hiệu quả và bền vững
                         </p>
                     </div>
 
@@ -153,7 +153,7 @@ export default function ServicesPage() {
                                     <ul className="space-y-3">
                                         {service.features.map((feature, idx) => (
                                             <li key={idx} className="flex items-start gap-3 text-sm text-gray-600">
-                                                <span className="text-red-600 font-bold shrink-0">✓</span>
+                                                <span className="text-[#F97316] font-bold shrink-0">✓</span>
                                                 <span>{feature}</span>
                                             </li>
                                         ))}
@@ -178,17 +178,17 @@ export default function ServicesPage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {processSteps.map((item, index) => (
                             <div key={index} className="relative group">
-                                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border-2 border-gray-100 hover:border-red-600 transition-all">
-                                    <div className="text-6xl font-black text-red-600 mb-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border-2 border-gray-100 hover:border-[#F97316] transition-all">
+                                    <div className="text-6xl font-black text-[#F97316] mb-4 opacity-20 group-hover:opacity-100 transition-opacity">
                                         {item.step}
                                     </div>
-                                    <h3 className="text-xl font-black mb-3 text-gray-900 group-hover:text-red-600 transition-colors">
+                                    <h3 className="text-xl font-black mb-3 text-gray-900 group-hover:text-[#F97316] transition-colors">
                                         {item.title}
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                                 </div>
                                 {index < processSteps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-1/2 -right-4 text-4xl text-red-600 z-10">→</div>
+                                    <div className="hidden lg:block absolute top-1/2 -right-4 text-4xl text-[#F97316] z-10">→</div>
                                 )}
                             </div>
                         ))}
@@ -201,7 +201,7 @@ export default function ServicesPage() {
                 <div className="container-custom">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-4xl font-black uppercase mb-12 text-center">
-                            Cam Kết Của Hoàng Lâm
+                            Cam Kết Của Hải Anh
                         </h2>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="flex gap-4 items-start">
@@ -238,18 +238,18 @@ export default function ServicesPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
+            <section className="py-20 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white">
                 <div className="container-custom text-center">
                     <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">
                         Bạn Cần Tư Vấn Dịch Vụ?
                     </h2>
-                    <p className="text-xl mb-10 text-red-100 max-w-2xl mx-auto">
+                    <p className="text-xl mb-10 text-orange-100 max-w-2xl mx-auto">
                         Để lại thông tin hoặc gọi ngay hotline, chuyên gia của chúng tôi sẽ hỗ trợ bạn trong thời gian sớm nhất
                     </p>
                     <div className="flex flex-wrap gap-6 justify-center">
                         <Link
                             href="/lien-he"
-                            className="bg-white text-red-600 px-10 py-5 rounded-xl font-black text-lg hover:bg-gray-100 transition-all shadow-2xl uppercase"
+                            className="bg-white text-[#F97316] px-10 py-5 rounded-xl font-black text-lg hover:bg-gray-100 transition-all shadow-2xl uppercase"
                         >
                             Đăng Ký Ngay
                         </Link>

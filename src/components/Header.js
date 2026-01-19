@@ -47,11 +47,11 @@ export default function Header() {
             <div className="hidden md:block bg-white border-b border-gray-100 py-2">
                 <div className="container-custom flex justify-between items-center text-sm text-gray-600">
                     <div className="flex items-center gap-4">
-                        <span>Hotline: <a href={`tel:${siteConfig.contact.phoneRaw}`} className="font-bold text-red-600">{siteConfig.contact.phone}</a></span>
+                        <span>Hotline: <a href={`tel:${siteConfig.contact.phoneRaw}`} className="font-bold text-[#F97316]">{siteConfig.contact.phone}</a></span>
                     </div>
                     <div className="flex items-center gap-4">
-                        <Link href="/login" className="hover:text-red-600 transition-colors">Đăng nhập</Link>
-                        <Link href="/gio-hang" className="hover:text-red-600 transition-colors">Giỏ hàng / 0 đ</Link>
+                        <Link href="/login" className="hover:text-[#F97316] transition-colors">Đăng nhập</Link>
+                        <Link href="/gio-hang" className="hover:text-[#F97316] transition-colors">Giỏ hàng / 0 đ</Link>
                     </div>
                 </div>
             </div>
@@ -62,12 +62,12 @@ export default function Header() {
                     <div className="flex justify-between items-center gap-3">
                         {/* Logo - Smaller on mobile */}
                         <Link href="/" className="flex items-center group shrink-0">
-                            <div className="bg-blue-900 text-white p-1.5 md:p-2 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center font-bold text-lg md:text-xl italic group-hover:scale-110 transition-transform">
+                            <div className="bg-[#1E3A8A] text-white p-1.5 md:p-2 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center font-bold text-lg md:text-xl italic group-hover:scale-110 transition-transform">
                                 {siteConfig.company.logo}
                             </div>
                             <div className="ml-2 md:ml-3">
-                                <h1 className="text-sm md:text-xl font-black text-blue-900 leading-none uppercase">{siteConfig.company.name}</h1>
-                                <p className="text-xs md:text-sm font-bold text-red-600 tracking-wider md:tracking-widest uppercase hidden sm:block">{siteConfig.company.slogan}</p>
+                                <h1 className="text-sm md:text-xl font-black text-[#1E3A8A] leading-none uppercase">{siteConfig.company.name}</h1>
+                                <p className="text-xs md:text-sm font-bold text-[#F97316] tracking-wider md:tracking-widest uppercase hidden sm:block">{siteConfig.company.slogan}</p>
                             </div>
                         </Link>
 
@@ -79,7 +79,7 @@ export default function Header() {
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden bg-red-600 text-white p-2 rounded-lg"
+                            className="md:hidden bg-[#F97316] text-white p-2 rounded-lg"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -88,14 +88,14 @@ export default function Header() {
 
                         {/* Contact Info - Desktop only */}
                         <div className="hidden lg:flex items-center gap-3 shrink-0">
-                            <div className="bg-red-100 p-2 rounded-full text-red-600 animate-pulse">
+                            <div className="bg-orange-100 p-2 rounded-full text-[#F97316] animate-pulse">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 5z" />
                                 </svg>
                             </div>
                             <div>
                                 <p className="text-xs text-gray-500 uppercase font-bold">Hotline</p>
-                                <p className="text-lg font-black text-red-600">{siteConfig.contact.phone}</p>
+                                <p className="text-lg font-black text-[#F97316]">{siteConfig.contact.phone}</p>
                             </div>
                         </div>
                     </div>
@@ -103,11 +103,11 @@ export default function Header() {
             </div>
 
             {/* Navigation Menu - Desktop */}
-            <nav className="hidden md:block bg-red-600 text-white relative z-[100]">
+            <nav className="hidden md:block bg-[#1E3A8A] text-white relative z-[100]">
                 <div className="container-custom flex items-center">
                     {/* Dropdown Category Menu */}
                     <div className="relative group">
-                        <div className="bg-red-600 px-4 lg:px-6 py-3 font-bold flex items-center gap-2 cursor-pointer hover:bg-red-700 transition-colors text-sm lg:text-base">
+                        <div className="bg-[#1E3A8A] px-4 lg:px-6 py-3 font-bold flex items-center gap-2 cursor-pointer hover:bg-[#1E40AF] transition-colors text-sm lg:text-base">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 lg:h-5 lg:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
@@ -126,14 +126,14 @@ export default function Header() {
                                         <li
                                             key={cat.id}
                                             onMouseEnter={() => handleCategoryHover(cat)}
-                                            className={`border-b border-gray-100 last:border-0 ${activeCategory?.id === cat.id ? 'bg-white text-red-600' : 'text-gray-700'}`}
+                                            className={`border-b border-gray-100 last:border-0 ${activeCategory?.id === cat.id ? 'bg-white text-[#F97316]' : 'text-gray-700'}`}
                                         >
                                             <Link
                                                 href={`/danh-muc/${cat.slug}`}
-                                                className="block px-4 lg:px-6 py-3 hover:text-red-600 font-bold text-xs lg:text-sm transition-colors flex justify-between items-center"
+                                                className="block px-4 lg:px-6 py-3 hover:text-[#F97316] font-bold text-xs lg:text-sm transition-colors flex justify-between items-center"
                                             >
                                                 <span className="line-clamp-1">{cat.name}</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" className={`h-3 w-3 shrink-0 ${activeCategory?.id === cat.id ? 'text-red-600' : 'text-gray-300'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className={`h-3 w-3 shrink-0 ${activeCategory?.id === cat.id ? 'text-[#F97316]' : 'text-gray-300'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>
                                             </Link>
@@ -147,12 +147,12 @@ export default function Header() {
                             <div className="w-2/3 p-4 lg:p-6 bg-white max-h-[60vh] overflow-y-auto">
                                 {activeCategory ? (
                                     <div>
-                                        <h3 className="text-red-600 font-black text-base lg:text-lg mb-4 border-b pb-2 uppercase tracking-tight line-clamp-1">
+                                        <h3 className="text-[#F97316] font-black text-base lg:text-lg mb-4 border-b pb-2 uppercase tracking-tight line-clamp-1">
                                             {activeCategory.name}
                                         </h3>
                                         {loadingProducts ? (
                                             <div className="flex items-center gap-2 text-gray-400 text-sm italic">
-                                                <div className="w-4 h-4 border-2 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+                                                <div className="w-4 h-4 border-2 border-[#F97316] border-t-transparent rounded-full animate-spin"></div>
                                                 Đang tải...
                                             </div>
                                         ) : categoryProducts[activeCategory.id]?.length > 0 ? (
@@ -161,14 +161,14 @@ export default function Header() {
                                                     <Link
                                                         key={product.id}
                                                         href={`/san-pham/${product.slug}`}
-                                                        className="flex items-center gap-2 lg:gap-3 p-2 rounded-lg hover:bg-red-50 transition-colors group"
+                                                        className="flex items-center gap-2 lg:gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors group"
                                                     >
                                                         <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gray-100 rounded flex items-center justify-center text-[10px] text-gray-400 font-bold shrink-0">
                                                             IMG
                                                         </div>
                                                         <div className="overflow-hidden flex-1 min-w-0">
-                                                            <p className="text-xs lg:text-sm font-bold text-gray-800 truncate group-hover:text-red-600">{product.name}</p>
-                                                            <p className="text-[10px] lg:text-xs text-red-600 font-black">
+                                                            <p className="text-xs lg:text-sm font-bold text-gray-800 truncate group-hover:text-[#F97316]">{product.name}</p>
+                                                            <p className="text-[10px] lg:text-xs text-[#F97316] font-black">
                                                                 {product.price ? `${Number(product.price).toLocaleString('vi-VN')} đ` : 'Liên hệ'}
                                                             </p>
                                                         </div>
@@ -180,7 +180,7 @@ export default function Header() {
                                         )}
                                         <Link
                                             href={`/danh-muc/${activeCategory.slug}`}
-                                            className="inline-block mt-4 lg:mt-6 text-xs lg:text-sm font-bold text-blue-900 hover:text-red-600 transition-colors"
+                                            className="inline-block mt-4 lg:mt-6 text-xs lg:text-sm font-bold text-[#1E3A8A] hover:text-[#F97316] transition-colors"
                                         >
                                             Xem tất cả &rarr;
                                         </Link>
@@ -198,11 +198,11 @@ export default function Header() {
                     </div>
 
                     <ul className="flex items-center">
-                        <li><Link href="/" className="px-3 lg:px-6 py-3 hover:bg-red-700 font-bold text-xs lg:text-sm block transition-colors">TRANG CHỦ</Link></li>
-                        <li><Link href="/gioi-thieu" className="px-3 lg:px-6 py-3 hover:bg-red-700 font-bold text-xs lg:text-sm block transition-colors">GIỚI THIỆU</Link></li>
-                        <li><Link href="/dich-vu" className="px-3 lg:px-6 py-3 hover:bg-red-700 font-bold text-xs lg:text-sm block transition-colors">DỊCH VỤ</Link></li>
-                        <li><Link href="/tin-tuc" className="px-3 lg:px-6 py-3 hover:bg-red-700 font-bold text-xs lg:text-sm block transition-colors uppercase">Tin tức</Link></li>
-                        <li><Link href="/lien-he" className="px-3 lg:px-6 py-3 hover:bg-red-700 font-bold text-xs lg:text-sm block transition-colors">LIÊN HỆ</Link></li>
+                        <li><Link href="/" className="px-3 lg:px-6 py-3 hover:bg-[#1E40AF] font-bold text-xs lg:text-sm block transition-colors">TRANG CHỦ</Link></li>
+                        <li><Link href="/gioi-thieu" className="px-3 lg:px-6 py-3 hover:bg-[#1E40AF] font-bold text-xs lg:text-sm block transition-colors">GIỚI THIỆU</Link></li>
+                        <li><Link href="/dich-vu" className="px-3 lg:px-6 py-3 hover:bg-[#1E40AF] font-bold text-xs lg:text-sm block transition-colors">DỊCH VỤ</Link></li>
+                        <li><Link href="/tin-tuc" className="px-3 lg:px-6 py-3 hover:bg-[#1E40AF] font-bold text-xs lg:text-sm block transition-colors uppercase">Tin tức</Link></li>
+                        <li><Link href="/lien-he" className="px-3 lg:px-6 py-3 hover:bg-[#1E40AF] font-bold text-xs lg:text-sm block transition-colors">LIÊN HỆ</Link></li>
                     </ul>
                 </div>
             </nav>
@@ -218,7 +218,7 @@ export default function Header() {
                             <li><Link href="/tin-tuc" className="block px-4 py-3 hover:bg-gray-100 rounded-lg font-bold text-gray-900" onClick={() => setMobileMenuOpen(false)}>Tin tức - Chia sẻ</Link></li>
                             <li><Link href="/lien-he" className="block px-4 py-3 hover:bg-gray-100 rounded-lg font-bold text-gray-900" onClick={() => setMobileMenuOpen(false)}>Liên hệ</Link></li>
                             <li className="pt-4 border-t">
-                                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="block px-4 py-3 bg-red-600 text-white rounded-lg font-black text-center">
+                                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="block px-4 py-3 bg-[#F97316] text-white rounded-lg font-black text-center">
                                     📞 {siteConfig.contact.phone}
                                 </a>
                             </li>

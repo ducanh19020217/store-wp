@@ -5,11 +5,11 @@ import CategoryFilter from '@/components/CategoryFilter';
 import { Suspense } from 'react';
 
 export const metadata = {
-    title: "Tin Tức - Chia Sẻ | Điện Máy Tổng Hợp Hoàng Lâm | Kiến Thức Ngành May",
+    title: "Tin Tức - Chia Sẻ | Điện Máy Tổng Hợp Hải Anh | Kiến Thức Ngành May",
     description: "Cập nhật tin tức mới nhất về ngành may mặc, xu hướng công nghệ, kinh nghiệm vận hành máy may công nghiệp. Chia sẻ kiến thức chuyên sâu từ chuyên gia.",
     keywords: "tin tức may mặc, xu hướng công nghệ may, kinh nghiệm vận hành máy may, bảo dưỡng máy công nghiệp",
     openGraph: {
-        title: "Tin Tức & Chia Sẻ - Điện Máy Tổng Hợp Hoàng Lâm",
+        title: "Tin Tức & Chia Sẻ - Điện Máy Tổng Hợp Hải Anh",
         description: "Cập nhật tin tức, xu hướng và kiến thức chuyên sâu về ngành may mặc",
         type: "website",
     },
@@ -52,7 +52,7 @@ export default async function NewsPage({ searchParams }) {
     return (
         <div className="bg-gray-50 min-h-screen">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-blue-900 to-red-600 text-white py-16">
+            <section className="bg-gradient-to-r from-blue-900 to-[#F97316] text-white py-16">
                 <div className="container-custom px-4">
                     <div className="max-w-3xl">
                         <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">
@@ -79,14 +79,14 @@ export default async function NewsPage({ searchParams }) {
                 {featuredPost && (
                     <section className="mb-16">
                         <div className="flex items-center gap-3 mb-8">
-                            <div className="h-8 w-2 bg-red-600"></div>
+                            <div className="h-8 w-2 bg-[#F97316]"></div>
                             <h2 className="text-3xl font-black uppercase">Bài Viết Nổi Bật</h2>
                         </div>
 
                         <Link href={`/tin-tuc/${featuredPost.slug}`}>
                             <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
                                 <div className="grid md:grid-cols-2 gap-0">
-                                    <div className="aspect-video md:aspect-auto bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center relative overflow-hidden">
+                                    <div className="aspect-video md:aspect-auto bg-gradient-to-br from-blue-100 to-orange-100 flex items-center justify-center relative overflow-hidden">
                                         {featuredPost._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
                                             <Image
                                                 src={featuredPost._embedded['wp:featuredmedia'][0].source_url}
@@ -97,7 +97,7 @@ export default async function NewsPage({ searchParams }) {
                                         ) : (
                                             <div className="text-6xl opacity-30">📰</div>
                                         )}
-                                        <div className="absolute top-6 left-6 bg-red-600 text-white px-4 py-2 rounded-full font-black text-sm uppercase">
+                                        <div className="absolute top-6 left-6 bg-[#F97316] text-white px-4 py-2 rounded-full font-black text-sm uppercase">
                                             Nổi bật
                                         </div>
                                     </div>
@@ -112,14 +112,14 @@ export default async function NewsPage({ searchParams }) {
                                             </span>
                                         </div>
                                         <h3
-                                            className="text-3xl md:text-4xl font-black mb-4 text-gray-900 group-hover:text-red-600 transition-colors leading-tight"
+                                            className="text-3xl md:text-4xl font-black mb-4 text-gray-900 group-hover:text-[#F97316] transition-colors leading-tight"
                                             dangerouslySetInnerHTML={{ __html: featuredPost.title.rendered }}
                                         />
                                         <div
                                             className="text-gray-600 leading-relaxed mb-6 line-clamp-3"
                                             dangerouslySetInnerHTML={{ __html: featuredPost.excerpt.rendered }}
                                         />
-                                        <div className="flex items-center gap-2 text-red-600 font-bold group-hover:gap-4 transition-all">
+                                        <div className="flex items-center gap-2 text-[#F97316] font-bold group-hover:gap-4 transition-all">
                                             <span>Đọc tiếp</span>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -135,7 +135,7 @@ export default async function NewsPage({ searchParams }) {
                 {/* Posts Grid */}
                 <section>
                     <div className="flex items-center gap-3 mb-8">
-                        <div className="h-8 w-2 bg-red-600"></div>
+                        <div className="h-8 w-2 bg-[#F97316]"></div>
                         <h2 className="text-3xl font-black uppercase">
                             {categorySlug === 'all' ? 'Bài Viết Mới Nhất' : `Chuyên mục: ${categories.find(c => c.slug === categorySlug)?.name || ''}`}
                         </h2>
@@ -166,14 +166,14 @@ export default async function NewsPage({ searchParams }) {
                                                 </span>
                                             </div>
                                             <h3
-                                                className="text-xl font-black mb-3 text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight flex-1"
+                                                className="text-xl font-black mb-3 text-gray-900 group-hover:text-[#F97316] transition-colors line-clamp-2 leading-tight flex-1"
                                                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                                             />
                                             <div
                                                 className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3"
                                                 dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                                             />
-                                            <div className="flex items-center gap-2 text-red-600 font-bold text-sm group-hover:gap-3 transition-all">
+                                            <div className="flex items-center gap-2 text-[#F97316] font-bold text-sm group-hover:gap-3 transition-all">
                                                 <span>Xem chi tiết</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -195,7 +195,7 @@ export default async function NewsPage({ searchParams }) {
             </div>
 
             {/* Newsletter CTA */}
-            <section className="bg-gradient-to-r from-blue-900 to-red-600 text-white py-16 mt-12">
+            <section className="bg-gradient-to-r from-blue-900 to-[#F97316] text-white py-16 mt-12">
                 <div className="container-custom text-center px-4">
                     <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase">
                         Đăng Ký Nhận Tin Tức
@@ -209,7 +209,7 @@ export default async function NewsPage({ searchParams }) {
                             placeholder="Nhập email của bạn..."
                             className="flex-1 px-6 py-4 rounded-xl text-gray-900 font-medium focus:outline-none focus:ring-4 focus:ring-white/30"
                         />
-                        <button className="bg-white text-red-600 px-8 py-4 rounded-xl font-black hover:bg-gray-100 transition-all shadow-xl whitespace-nowrap">
+                        <button className="bg-white text-[#F97316] px-8 py-4 rounded-xl font-black hover:bg-gray-100 transition-all shadow-xl whitespace-nowrap">
                             Đăng Ký
                         </button>
                     </div>

@@ -1,28 +1,45 @@
+@import './colors.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary-red: #d32f2f;
-  --primary-dark-red: #b71c1c;
-  --secondary-white: #ffffff;
-  --text-gray: #333333;
-  --light-gray: #f5f5f5;
-  --border-color: #e0e0e0;
-}
-
 body {
-  color: var(--text-gray);
-  background-color: var(--secondary-white);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
   font-family: 'Inter', sans-serif;
+  line-height: 1.6;
 }
 
 @layer components {
-  .btn-red {
-    @apply bg-[#d32f2f] text-white px-6 py-2 rounded-md font-bold hover:bg-[#b71c1c] transition-colors;
+  .btn-primary {
+    @apply bg-[#1E3A8A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1E40AF] active:bg-[#1E3A8A] transition-all duration-200 shadow-md hover:shadow-lg;
   }
-  
+
+  .btn-secondary {
+    @apply bg-[#F97316] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#EA580C] active:bg-[#F97316] transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-[#1E3A8A] text-[#1E3A8A] px-6 py-3 rounded-lg font-semibold hover:bg-[#1E3A8A] hover:text-white transition-all duration-200;
+  }
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, #F97316 0%, #FBBF24 100%);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #FB923C 100%);
   }
 }

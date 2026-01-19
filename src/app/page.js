@@ -60,30 +60,30 @@ export default async function Home() {
       <section className="bg-blue-50 py-12 md:py-20 overflow-hidden relative">
         <div className="container-custom flex flex-col md:flex-row items-center gap-12 px-4">
           <div className="flex-1 z-10">
-            <h2 className="text-4xl md:text-6xl font-black text-blue-900 mb-4 leading-tight uppercase">
-              {siteConfig.company.name} <span className="text-red-600">{siteConfig.company.slogan}</span>
+            <h2 className="text-4xl md:text-6xl font-black text-[#1E3A8A] mb-4 leading-tight uppercase">
+              {siteConfig.company.name} <span className="text-[#F97316]">{siteConfig.company.slogan}</span>
             </h2>
             <p className="text-xl text-gray-700 mb-8 font-medium">
               {siteConfig.company.description}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/" className="bg-red-600 text-white px-8 py-4 rounded-md font-black text-lg shadow-lg hover:bg-red-700 transition-all">
+              <Link href="/" className="bg-[#F97316] text-white px-8 py-4 rounded-md font-black text-lg shadow-lg hover:bg-[#EA580C] transition-all">
                 XEM SẢN PHẨM BÁN CHẠY
               </Link>
-              <Link href="/lien-he" className="bg-white text-red-600 border-2 border-red-600 px-8 py-4 rounded-md font-black text-lg shadow-lg hover:bg-red-50 transition-all">
+              <Link href="/lien-he" className="bg-white text-[#1E3A8A] border-2 border-[#1E3A8A] px-8 py-4 rounded-md font-black text-lg shadow-lg hover:bg-blue-50 transition-all">
                 LIÊN HỆ TƯ VẤN
               </Link>
             </div>
           </div>
           <div className="flex-1 relative">
-            <div className="bg-red-600 w-full aspect-video rounded-3xl shadow-2xl flex items-center justify-center text-white text-4xl font-bold italic overflow-hidden border-8 border-white">
+            <div className="bg-gradient-secondary w-full aspect-video rounded-3xl shadow-2xl flex items-center justify-center text-white text-4xl font-bold italic overflow-hidden border-8 border-white">
               <div className="text-center">
                 <p className="uppercase">Hình Ảnh</p>
                 <p className="text-sm not-italic mt-2 uppercase">Phụ Kiện Nghề May</p>
               </div>
             </div>
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-red-600 rounded-full opacity-20 blur-2xl"></div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-900 rounded-full opacity-10 blur-3xl"></div>
+            <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#F97316] rounded-full opacity-20 blur-2xl"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#1E3A8A] rounded-full opacity-10 blur-3xl"></div>
           </div>
         </div>
       </section>
@@ -92,7 +92,7 @@ export default async function Home() {
       <section className="container-custom -mt-10 relative z-20 px-4">
         <div className="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-gray-100">
           <div className="flex items-center gap-4 mb-8 md:mb-10">
-            <div className="h-8 w-2 bg-red-600"></div>
+            <div className="h-8 w-2 bg-[#F97316]"></div>
             <h3 className="text-2xl font-black uppercase tracking-tight">
               Danh mục sản phẩm
             </h3>
@@ -102,16 +102,16 @@ export default async function Home() {
               <Link
                 key={cat.id}
                 href={`/danh-muc/${cat.slug}`}
-                className="group flex flex-col items-center text-center p-4 md:p-6 rounded-xl hover:bg-red-50 transition-all border border-gray-50 hover:border-red-200 hover:shadow-md"
+                className="group flex flex-col items-center text-center p-4 md:p-6 rounded-xl hover:bg-orange-50 transition-all border border-gray-50 hover:border-[#F97316] hover:shadow-md"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center border-2 border-gray-100 group-hover:border-red-200 relative">
+                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center border-2 border-gray-100 group-hover:border-[#F97316] relative">
                   {cat.image?.src ? (
                     <Image src={cat.image.src} alt={cat.name} fill className="object-cover" />
                   ) : (
                     <span className="text-2xl md:text-3xl">📦</span>
                   )}
                 </div>
-                <span className="text-xs md:text-sm font-bold text-gray-800 group-hover:text-red-600 uppercase tracking-tighter leading-tight line-clamp-2">
+                <span className="text-xs md:text-sm font-bold text-gray-800 group-hover:text-[#F97316] uppercase tracking-tighter leading-tight line-clamp-2">
                   {cat.name}
                 </span>
               </Link>
@@ -124,10 +124,10 @@ export default async function Home() {
       <section className="container-custom mt-16 md:mt-24 px-4">
         <div className="flex justify-between items-end mb-8 md:mb-12">
           <div className="flex items-center gap-4">
-            <div className="h-10 w-2 bg-red-600"></div>
+            <div className="h-10 w-2 bg-[#F97316]"></div>
             <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight">Sản phẩm mới nhất</h3>
           </div>
-          <Link href="/" className="text-red-600 font-bold hover:underline flex items-center gap-2 text-sm md:text-base">
+          <Link href="/" className="text-[#F97316] font-bold hover:underline flex items-center gap-2 text-sm md:text-base">
             Xem tất cả
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -153,20 +153,20 @@ export default async function Home() {
                 ) : (
                   <span className="text-lg uppercase italic">Ảnh Sản Phẩm</span>
                 )}
-                <div className="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Mới</div>
+                <div className="absolute top-4 left-4 bg-[#F97316] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Mới</div>
                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <div className="p-4 md:p-6">
-                <h4 className="font-bold text-base md:text-lg mb-3 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight">
+                <h4 className="font-bold text-base md:text-lg mb-3 group-hover:text-[#F97316] transition-colors line-clamp-2 leading-tight">
                   {product.name}
                 </h4>
-                <p className="text-red-600 font-black text-xl md:text-2xl mb-4 md:mb-6">
+                <p className="text-[#F97316] font-black text-xl md:text-2xl mb-4 md:mb-6">
                   {product.price && Number(product.price) > 0
                     ? `${Number(product.price).toLocaleString('vi-VN')} đ`
                     : 'Liên hệ'
                   }
                 </p>
-                <button className="w-full bg-white text-red-600 border-2 border-red-600 py-2.5 md:py-3 rounded-xl font-black hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm uppercase text-xs md:text-sm tracking-widest">
+                <button className="w-full bg-white text-[#F97316] border-2 border-[#F97316] py-2.5 md:py-3 rounded-xl font-black hover:bg-[#F97316] hover:text-white transition-all duration-300 shadow-sm uppercase text-xs md:text-sm tracking-widest">
                   Xem chi tiết
                 </button>
               </div>
@@ -176,22 +176,22 @@ export default async function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-red-600 mt-16 md:mt-24 py-12 md:py-16 text-white">
+      <section className="bg-gradient-secondary mt-16 md:mt-24 py-12 md:py-16 text-white">
         <div className="container-custom grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center px-4">
           <div>
             <div className="text-4xl mb-4">🛡️</div>
             <h4 className="text-lg md:text-xl font-bold mb-2 uppercase">Bảo Hành Tận Nơi</h4>
-            <p className="text-red-100 text-sm">Cam kết hỗ trợ kỹ thuật nhanh chóng trong vòng 24h.</p>
+            <p className="text-white/90 text-sm">Cam kết hỗ trợ kỹ thuật nhanh chóng trong vòng 24h.</p>
           </div>
           <div>
             <div className="text-4xl mb-4">🚚</div>
             <h4 className="text-lg md:text-xl font-bold mb-2 uppercase">Giao Hàng Toàn Quốc</h4>
-            <p className="text-red-100 text-sm">Vận chuyển an toàn, lắp đặt tận xưởng cho khách hàng.</p>
+            <p className="text-white/90 text-sm">Vận chuyển an toàn, lắp đặt tận xưởng cho khách hàng.</p>
           </div>
           <div>
             <div className="text-4xl mb-4">💎</div>
             <h4 className="text-lg md:text-xl font-bold mb-2 uppercase">Chất Lượng Chính Hãng</h4>
-            <p className="text-red-100 text-sm">Cung cấp phụ kiện từ các thương hiệu hàng đầu thế giới.</p>
+            <p className="text-white/90 text-sm">Cung cấp phụ kiện từ các thương hiệu hàng đầu thế giới.</p>
           </div>
         </div>
       </section>
@@ -200,10 +200,10 @@ export default async function Home() {
       <section className="container-custom mt-16 md:mt-24 px-4 pb-20">
         <div className="flex justify-between items-end mb-8 md:mb-12">
           <div className="flex items-center gap-4">
-            <div className="h-10 w-2 bg-red-600"></div>
+            <div className="h-10 w-2 bg-[#F97316]"></div>
             <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight">Tin tức mới nhất</h3>
           </div>
-          <Link href="/tin-tuc" className="text-red-600 font-bold hover:underline flex items-center gap-2 text-sm md:text-base">
+          <Link href="/tin-tuc" className="text-[#F97316] font-bold hover:underline flex items-center gap-2 text-sm md:text-base">
             Xem tất cả tin tức
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -231,9 +231,9 @@ export default async function Home() {
                   <div className="text-xs text-gray-500 mb-2">
                     📅 {new Date(post.date).toLocaleDateString('vi-VN')}
                   </div>
-                  <h4 className="font-bold text-lg mb-3 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                  <div className="text-gray-600 text-sm line-clamp-2 mb-4" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
-                  <div className="mt-auto text-red-600 font-bold text-sm flex items-center gap-2">
+                  <h4 className="font-bold text-lg mb-3 group-hover:text-[#F97316] transition-colors line-clamp-2 leading-tight" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                  <p className="text-gray-600 text-sm line-clamp-3 mb-4" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+                  <div className="mt-auto text-[#F97316] font-bold text-sm flex items-center gap-2">
                     Xem chi tiết <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                 </div>
